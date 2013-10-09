@@ -1,6 +1,9 @@
 Hello - iBeacon demo using Parse
 =====
 
+![Setup](http://i.imgur.com/5uzSI24.png)
+![Nearby](http://i.imgur.com/CyQNUzf.png)
+
 Requires iOS 7 on an iPhone 4S or newer
 
 Before building:
