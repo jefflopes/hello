@@ -72,7 +72,9 @@
     {
         CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:uuid] identifier:uuid];
         NSDictionary *peripheralData = [region peripheralDataWithMeasuredPower:nil];
-        [self.peripheralManager startAdvertising:peripheralData];
+        
+        if (self.peripheralManager.state == CBPeripheralManagerStatePoweredOn)
+            [self.peripheralManager startAdvertising:peripheralData];
     }
 }
 
@@ -173,13 +175,13 @@
                 cell.myNameIsView.contentView.backgroundColor = [UIColor grayColor];
                 break;
             case CLProximityImmediate:
-                cell.myNameIsView.contentView.backgroundColor = [UIColor greenColor];
+                cell.myNameIsView.contentView.backgroundColor = [UIColor redColor];
                 break;
             case CLProximityNear:
-                cell.myNameIsView.contentView.backgroundColor = [UIColor yellowColor];
+                cell.myNameIsView.contentView.backgroundColor = [UIColor orangeColor];
                 break;
             case CLProximityFar:
-                cell.myNameIsView.contentView.backgroundColor = [UIColor redColor];
+                cell.myNameIsView.contentView.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:220.0/255.0 blue:0.0/255.0 alpha:1.0];
                 break;
             default:
                 break;

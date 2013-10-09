@@ -7,6 +7,7 @@
 //
 
 #import "MCMyNameIsView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MCMyNameIsView
 
@@ -29,6 +30,11 @@
 {
     self.contentView = [[[NSBundle mainBundle] loadNibNamed:@"MCMyNameIsView" owner:self options:nil] objectAtIndex:0];
     [self addSubview:self.contentView];
+    
+    self.contentView.layer.cornerRadius = 15;
+    self.contentView.layer.masksToBounds = YES;
+    self.contentView.layer.borderWidth = 1;
+    self.contentView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
 
 @end
